@@ -1,9 +1,9 @@
-import { TEST_ACTION } from "../actions/app";
+import { FETCH_INVENTORY } from "../actions/app";
 
-export default (state = { test: "" }, action) => {
+export default (state = { inventory: [] }, action) => {
   switch (action.type) {
-    case TEST_ACTION:
-      return { ...state, test: action.payload };
+    case FETCH_INVENTORY:
+      return { ...state, inventory: action.payload };
     default:
       return state;
   }

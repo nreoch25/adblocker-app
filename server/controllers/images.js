@@ -7,8 +7,9 @@ const Image = require("../schemas/image");
 export default {
   setRouting: function(router) {
     router.post("/api/image", this.postImage);
+    router.get("/api/images", this.getImages);
   },
-  postImage(req, res) {
+  postImage: function(req, res) {
     if(req.file === undefined || req.file === null) { return res.status(400).send({ error: "Please upload an image file" }) }
     // read image and save as a base 64
     fs.readFile(req.file.path, (err, data) => {
@@ -29,6 +30,13 @@ export default {
       }).catch(error => {
         res.status(400).send({ error: error.message });
       });
+    });
+  },
+  getImages: function(req, res) {
+    Image.find({}).then(response => {
+      return res.status(200).send({ images: response });
+    }).catch(error => {
+      res.status(400).send({ error: error.message });
     });
   }
 }
