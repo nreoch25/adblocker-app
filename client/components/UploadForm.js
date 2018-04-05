@@ -66,7 +66,7 @@ class UploadForm extends Component {
                   type="submit"
                   className="btn btn-lg btn-success btn-block"
                 >
-                  Login
+                  Upload
                 </button>
               </form>
             </div>
