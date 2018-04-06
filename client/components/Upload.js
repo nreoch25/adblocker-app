@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import UploadForm from "./UploadForm";
+import requireAuth from "./hoc/requireAuth";
 
 class Upload extends Component {
   render() {
@@ -11,4 +12,4 @@ class Upload extends Component {
   }
 }
 
-export default Upload;
+export default requireAuth(Upload);

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import requireAuth from "./hoc/requireAuth";
 import { bytesToKB } from "../utils/AppUtils";
 import { fetchInventory } from "../actions/app";
 
@@ -52,4 +53,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fetchInventory })(Inventory);
+export default requireAuth(connect(mapStateToProps, { fetchInventory })(Inventory));
