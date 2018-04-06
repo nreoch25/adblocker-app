@@ -8,9 +8,26 @@ h1 {
 .vertical-offset-100 {
   padding-top: 100px;
 }
-.form-padding {
+.padding-10 {
   padding: 10px;
+}
+.padding-top-5 {
+  padding-top: 5px;
+}
+.padding-left-0 {
+  padding-left: 0;
 }
 .margin-top-10 {
   margin-top: 10px;
 }
+/* Start Text classes */
+
+.font-size-125 {
+  font-size: 1.25rem;
+}
+
+.font-size-90 {
+  font-size: .90rem;
+}
+
+/* End Text classes */

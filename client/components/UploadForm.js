@@ -3,9 +3,6 @@ import React, { Component } from "react";
 class UploadForm extends Component {
   handleFormSubmit = (evt) => {
     evt.preventDefault();
-    console.log(this.adName.value);
-    console.log(this.adType.value);
-    console.log(this.adImage.files[0]);
     const formData = new FormData();
     formData.append("adName", this.adName.value);
     formData.append("adType", this.adType.value);
@@ -25,7 +22,7 @@ class UploadForm extends Component {
     return (
       <div className="row vertical-offset-100">
         <div className="col-md-6 col-md-offset-6 col-lg-4 col-lg-offset-4 mx-auto">
-          <div className="card box-shadow-panel form-padding">
+          <div className="card box-shadow-panel padding-10">
             <div className="card-header remove-border-bottom">
               <h3 className="card-title text-center margin-bottom-0">
                 Upload Form

@@ -6,7 +6,7 @@ class LoginForm extends Component {
     return (
       <div className="row vertical-offset-100">
         <div className="col-md-6 col-md-offset-6 col-lg-4 col-lg-offset-4 mx-auto">
-          <div className="card box-shadow-panel form-padding">
+          <div className="card box-shadow-panel padding-10">
             <div className="card-header remove-border-bottom">
               <h3 className="card-title text-center margin-bottom-0">
                 Login Form
