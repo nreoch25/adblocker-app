@@ -3,6 +3,9 @@ import React, { Component } from "react";
 class UploadForm extends Component {
   handleFormSubmit = (evt) => {
     evt.preventDefault();
+    console.log(this.adName.value);
+    console.log(this.adType.value);
+    console.log(this.adImage.files[0]);
     const formData = new FormData();
     formData.append("adName", this.adName.value);
     formData.append("adType", this.adType.value);
@@ -46,6 +49,8 @@ class UploadForm extends Component {
                   <select className="form-control" ref={ref => { this.adType = ref; }} name="adType" required>
                     <option value="leaderboard">Leaderboard (728x90)</option>
                     <option value="bigbox">Bigbox (300x250)</option>
+                    <option value="mobile-leaderboard">Mobile Leaderboard (320x50)</option>
+                    <option value="wallpaper">Wallpaper</option>
                   </select>
                 </div>
                 <div className="form-group">
