@@ -24,6 +24,17 @@ export function loginUser({ email, password }, history) {
   };
 }
 
+export function logoutUser(history) {
+  return dispatch => {
+    axios.post("/auth/logout").then(() => {
+      dispatch({
+        type: UNAUTHENTICATE_USER
+      });
+      history.push("/");
+    });
+  };
+}
+
 export function currentUser() {
   return dispatch => {
     axios.post("/auth/user").then(response => {

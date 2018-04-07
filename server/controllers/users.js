@@ -4,6 +4,7 @@ import userValidation from "../middleware/userValidation";
 export default {
   setRouting: function(router) {
     router.post("/auth/user", this.currentUser);
+    router.post("/auth/logout", this.userLogout);
     router.post(
       "/auth/login",
       userValidation.loginValidation,
@@ -52,5 +53,10 @@ export default {
       return res.send({ user: false });
     }
     res.send({ user: { username: req.user.username, type: req.user.type } });
+  },
+  userLogout: function(req, res) {
+    req.session.destroy();
+    req.logout();
+    res.send({ message: "Successfully logged out" });
   },
 }

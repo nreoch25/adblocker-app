@@ -18,6 +18,26 @@ class Header extends Component {
               Inventory <i className="fa fa-sitemap" />
             </Link>
           </li>
+          <li className="nav-item dropdown">
+            <a
+              className="nav-link dropdown-toggle"
+              id="userdropdown"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              href="#"
+            >
+              {this.props.user.username}
+            </a>
+            <div
+              className="dropdown-menu dropdown-menu-right"
+              aria-labelledby="userdropdown"
+            >
+              <Link to="/logout" className="dropdown-item">
+                Logout
+              </Link>
+            </div>
+          </li>
         </ul>
       );
     } else {
