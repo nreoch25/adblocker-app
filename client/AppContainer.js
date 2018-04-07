@@ -17,6 +17,7 @@ const App = () => (
         <div>
           <Switch>
             <Route exact path="/" component={Routes.Index} />
+            <Route exact path="/about" component={Routes.About} />
             <Route exact path="/upload" component={Routes.Upload} />
             <Route exact path="/inventory" component={Routes.Inventory} />
             <Route component={Routes.PageNotFound} />

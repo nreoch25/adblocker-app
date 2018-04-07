@@ -5,7 +5,7 @@ import {
 } from "../actions/authentication";
 
 export default (
-  state = { authenticated: null, user: null, error: [], onlineUsers: [] },
+  state = { authenticated: null, user: null, error: [] },
   action
 ) => {
   switch (action.type) {
