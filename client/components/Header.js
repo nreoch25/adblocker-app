@@ -3,11 +3,42 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 class Header extends Component {
+  checkAdmin() {
+    if (this.props.user && this.props.user.type === "admin") {
+      return (
+        <li className="nav-item dropdown">
+          <a
+            className="nav-link dropdown-toggle"
+            id="admindropdown"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            href="#"
+          >
+          Admin
+          </a>
+          <div
+            className="dropdown-menu dropdown-menu-right"
+            aria-labelledby="admindropdown"
+          >
+            <Link to="/signup" className="dropdown-item">
+              Create User
+            </Link>
+          </div>
+        </li>
+      );
+    }
+  }
   renderLinks() {
     if(this.props.authenticated === true) {
       console.log("USER AUTHENTICATED", this.props.user);
       return (
         <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+            <Link className="nav-link" to="/about">
+              About <i className="fa fa-info-circle" />
+            </Link>
+          </li>
           <li className="nav-item">
             <Link className="nav-link" to="/upload">
               Upload <i className="fa fa-upload" />
@@ -18,6 +49,7 @@ class Header extends Component {
               Inventory <i className="fa fa-sitemap" />
             </Link>
           </li>
+          {this.checkAdmin()}
           <li className="nav-item dropdown">
             <a
               className="nav-link dropdown-toggle"
@@ -41,6 +73,7 @@ class Header extends Component {
         </ul>
       );
     } else {
+      console.log("USER UNAUTHENTICATED");
       return (
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">

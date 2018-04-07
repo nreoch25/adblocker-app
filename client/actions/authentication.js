@@ -24,6 +24,26 @@ export function loginUser({ email, password }, history) {
   };
 }
 
+export function signupUser({ username, email, password }, history) {
+  return dispatch => {
+    axios
+      .post("/auth/signup", { username, email, password })
+      .then(response => {
+        console.log("Successful Signup", response.data.user);
+
+        dispatch({
+          type: AUTHENTICATE_USER,
+          payload: response.data.user
+        });
+        history.push("/inventory");
+      })
+      .catch(error => {
+        console.log("Failed Signup", error.response.data.error);
+        dispatch(authError(error.response.data.error));
+      });
+  };
+}
+
 export function logoutUser(history) {
   return dispatch => {
     axios.post("/auth/logout").then(() => {

@@ -20,6 +20,7 @@ const App = () => (
             <Route exact path="/about" component={Routes.About} />
             <Route exact path="/upload" component={Routes.Upload} />
             <Route exact path="/inventory" component={Routes.Inventory} />
+            <Route exact path="/signup" component={Routes.Signup} />
             <Route exact path="/logout" component={Routes.Logout} />
             <Route component={Routes.PageNotFound} />
           </Switch>
