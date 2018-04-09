@@ -7,6 +7,7 @@ const ImageSchema = Schema({
   size: { type: Number, required: true },
   img: { type: Buffer, required: true },
   adType: { type: String, enum: [ "leaderboard", "bigbox", "mobile-leaderboard", "wallpaper" ], required: true },
+  clickThrough: { type: String, required: true }
 });
 
 module.exports = mongoose.model("Image", ImageSchema);

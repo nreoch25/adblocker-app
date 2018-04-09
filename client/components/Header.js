@@ -92,6 +92,7 @@ class Header extends Component {
 
   }
   render() {
+    console.log("RENDER HEADER");
     return (
       <nav className="navbar navbar-expand-md navbar-dark bg-dark">
         <Link className="navbar-brand" to="/">

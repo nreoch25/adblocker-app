@@ -16,6 +16,7 @@ export default {
       const base64Image = data.toString("base64");
       const newImage = new Image({
         name: req.body.adName,
+        clickThrough: req.body.clickThrough,
         contentType: req.file.mimetype,
         size: req.file.size,
         img: Buffer(base64Image, "base64"),

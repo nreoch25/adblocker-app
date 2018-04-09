@@ -12,6 +12,7 @@ export default (
     case AUTHENTICATE_USER:
       return { ...state, authenticated: true, user: action.payload, error: [] };
     case UNAUTHENTICATE_USER:
+      console.log("HERE");
       return { ...state, authenticated: false, user: null, error: [] };
     case AUTHENTICATION_ERROR:
       return { ...state, error: action.payload };

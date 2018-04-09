@@ -8,6 +8,7 @@ class UploadForm extends Component {
     console.log(this.adImage.files[0]);
     const formData = new FormData();
     formData.append("adName", this.adName.value);
+    formData.append("clickThrough", this.clickThrough.value);
     formData.append("adType", this.adType.value);
     formData.append("adImage", this.adImage.files[0]);
     fetch("/api/image", {
@@ -38,6 +39,17 @@ class UploadForm extends Component {
                   <input
                     ref={ref => {
                       this.adName = ref;
+                    }}
+                    className="form-control"
+                    type="input"
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Click through URL:</label>
+                  <input
+                    ref={ref => {
+                      this.clickThrough = ref;
                     }}
                     className="form-control"
                     type="input"

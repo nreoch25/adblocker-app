@@ -50,6 +50,7 @@ export function logoutUser(history) {
       dispatch({
         type: UNAUTHENTICATE_USER
       });
+      console.log("HISTORY.PUSH");
       history.push("/");
     });
   };
