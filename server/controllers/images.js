@@ -7,6 +7,7 @@ const Image = require("../schemas/image");
 export default {
   setRouting: function(router) {
     router.post("/api/image", this.postImage);
+    router.post("/api/image/:type", this.serveImage);
     router.get("/api/images", this.getImages);
   },
   postImage: function(req, res) {
@@ -36,6 +37,13 @@ export default {
   getImages: function(req, res) {
     Image.find({}).then(response => {
       return res.status(200).send({ images: response });
+    }).catch(error => {
+      res.status(400).send({ error: error.message });
+    });
+  },
+  serveImage: function(req, res) {
+    Image.findOne({ adType: req.params.type }).then((doc) => {
+      return res.send({ image: doc });
     }).catch(error => {
       res.status(400).send({ error: error.message });
     });
